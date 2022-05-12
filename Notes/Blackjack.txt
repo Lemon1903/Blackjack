@@ -1,0 +1,33 @@
+- instructions
+- get bet
+- give 1st card to all players and dealer all facing up
+- give 2nd card to all players and dealer but in dealer, the card is facing down
+- prompts user to choose option: hit or stay
+
+Hit or Stay
+- if hit, a card on top of the deck will be given to the player
+	- if player card total + the given card = 21 then it is a blackjack
+	- else if the player card total + the given card > 21 then it is busted
+	- else if player card total + the given card < 21 then prompts user to choose chose 	an option to hit or stay again then it continues the process until user say stay or 	becomes busted.
+
+Dealer concealed card reveal
+- if stay, then the total card score of the player will be matched from the dealer hand afer all other players option
+- after all player chosen their option, dealer will reveal the concealed card.
+	- if the dealer concealed card + first card < 17, then he will pick a new card at the top of the deck and check the total again
+	- else if the dealer concealed card + first card is < 21 and >= 17, then he will stay and tally the result.
+	- else if the dealer concealed card + first card = 21, then he is blackjack
+
+Tallying
+- if the player total card score = 21, then he won twice his bet
+- else if the dealer total card score = 21, then dealer gets all players bet
+- else if the player total card score > the dealer total card score then he will win twice the bet he made
+- else if he is lower or busted, dealer gets his bet.
+
+- continue the process...
+
+if ((!pBust && dBust) || (!pBust && !dBust && pScore > dScore) || (pBj && !dBj))
+	player won
+else if ((pBust && dBust) || (pBust && !dBust) || (!pBust && !dBust && pScore < dScore) || (!pBj && dBj))
+	dealer won
+else 
+	its a tie

@@ -1,19 +1,28 @@
 ﻿using Blackjack;
 
+Options:
 TitleScreen.Options();
 Console.Clear();
 
 switch (TitleScreen.ChosenOption)
 {
     case 1:
-        Player player = new Player();
-        Game game = new();
-        game.PlayRound(player);
+        Console.WriteLine("\n Welcome to Blackjack Player!\n");
+        var noOfPlayers = Prompt.ForNumberOfPlayers();
+        var game = new Game(noOfPlayers);
+        game.PlayRound();
         break;
     case 2:
         Environment.Exit(0);
         break;
     case 3:
-        break;
+        Instructions();
+        Console.ReadKey();
+        Console.Clear();
+        goto Options;
 }
 
+static void Instructions()
+{
+    Console.WriteLine("\n ---Nothing placed yet cause it's not yet finished with all the functionalities---");
+}
