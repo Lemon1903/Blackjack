@@ -1,0 +1,6 @@
+Other functionalities:
+- Split hand
+- Insurance
+- Doubling down
+
+I forgot the others but they need to be added...
