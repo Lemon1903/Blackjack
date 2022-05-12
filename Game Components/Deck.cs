@@ -25,12 +25,9 @@
             }
         }
 
-        public void DrawCard(Hands hand, string who)
+        public void DrawCard(Hands hand)
         {
-            if (who.Equals("player"))
-                hand.Hand.Add(Cards.Dequeue());
-            else if (who.Equals("dealer"))
-                hand.Hand.Add(Cards.Dequeue());
+            hand.Hand.Add(Cards.Dequeue());
         }
     }
 }

@@ -45,7 +45,6 @@
             }
         }
 
-        // needs to be fixed
         private static void EnterBet(Player player)
         {
             player.Bet = Prompt.ForPlayerBet(player.Name);
@@ -54,7 +53,7 @@
         private void CheckMove(Player player)
         {
             if (player.Move.Equals("hit", StringComparison.OrdinalIgnoreCase))
-                _deck.DrawCard(player.Hand, "player");
+                _deck.DrawCard(player.Hand);
             else if (player.Move.Equals("stand", StringComparison.OrdinalIgnoreCase))
                 _isStand = true;
         }
@@ -68,7 +67,6 @@
             {
                 int start = Console.CursorTop;
 
-                // visuals needs to be fixed
                 DisplayMessages.MoveTurn($"Player {player.Name}", _players, _dealerHand, _isDealerTurn);
                 Console.WriteLine($"\n Player hand total score: {player.Hand.TotalHandScore}");
 
@@ -105,7 +103,7 @@
                 Console.WriteLine($"\n Dealer hand total score: {_dealerHand.TotalHandScore}");
 
                 if (_dealerHand.TotalHandScore < 17)
-                    _deck.DrawCard(_dealerHand, "dealer");
+                    _deck.DrawCard(_dealerHand);
                 else if (_dealerHand.TotalHandScore is >= 17 and < 21)
                     break;
                 else if (_dealerHand.IsBlackJack)
@@ -149,7 +147,7 @@
                 }
                 else
                 {
-                    DisplayMessages.ShowRoundResult($"[Player {player.Name}] pushes", player);
+                    DisplayMessages.ShowRoundResult($"[Player {player.Name}] pushes.", player);
                 }
             }
 
@@ -161,11 +159,11 @@
             _dealerHand = new Hands(_deck);
             _isStand = _isDealerTurn = false;
 
-            if (_deck.Cards.Count < 10)
-                _deck = new Deck();
-
             for (int i = 0; i < _players.Length; i++)
                 _players[i].Hand = new Hands(_deck);
+
+            if (_deck.Cards.Count < 25)
+                _deck = new Deck();
 
             Console.WriteLine(" Press any key to continue to next round.");
             Console.ReadKey();
