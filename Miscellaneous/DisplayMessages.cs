@@ -16,7 +16,7 @@
 
         public static void BlackJack(string who)
         {
-            Console.WriteLine($" {who} hand is a Blakcjack.");
+            Console.WriteLine($" {who} hand is a Blackjack.");
             Console.ReadKey();
         }
 

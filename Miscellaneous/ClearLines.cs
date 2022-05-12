@@ -6,7 +6,7 @@
         {
             Console.SetCursorPosition(0, Console.CursorTop - position);
             for (int i = 0; i < position; i++)
-                Console.WriteLine(new string(' ', Console.WindowWidth));
+                Console.WriteLine(new string(' ', Console.BufferWidth - 1));
             Console.SetCursorPosition(0, Console.CursorTop - position);
         }
     }

@@ -7,7 +7,7 @@ Console.Clear();
 switch (TitleScreen.ChosenOption)
 {
     case 1:
-        Console.WriteLine("\n Welcome to Blackjack Player!\n");
+        Console.WriteLine("\n Welcome to Blackjack!\n");
         var noOfPlayers = Prompt.ForNumberOfPlayers();
         var game = new Game(noOfPlayers);
         game.PlayRound();
