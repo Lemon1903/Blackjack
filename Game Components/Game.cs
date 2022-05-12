@@ -88,7 +88,7 @@
 
                 if (_isStand) break;
 
-                ClearLines.Clear(Console.CursorTop + 1 - start);
+                ClearLines.Clear(Console.CursorTop - start);
             }
         }
 
@@ -167,7 +167,7 @@
             for (int i = 0; i < _players.Length; i++)
                 _players[i].Hand = new Hands(_deck);
 
-            Console.Write(" Press any key to continue to next round.");
+            Console.WriteLine(" Press any key to continue to next round.");
             Console.ReadKey();
         }
     }
